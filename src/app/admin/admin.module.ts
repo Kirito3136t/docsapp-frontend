@@ -7,6 +7,7 @@ import { ListComponent } from './pages/list/list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { TableComponent } from './components/table/table.component';
+import { AdminService } from './services/admin.service';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
@@ -31,6 +32,9 @@ const routes: Routes = [
   ],
   exports:[
     RouterModule
+  ],
+  providers:[
+    AdminService
   ]
 })
 export class AdminModule { }
