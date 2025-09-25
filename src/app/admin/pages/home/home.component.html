@@ -1,0 +1,47 @@
+<div class="container">
+    <app-navbar></app-navbar>
+    <div class="main">
+        <div class="searchbar">
+            <input type="text" placeholder="Search here ..."/>
+        </div>
+        <div class="card-list">
+            <mat-card class="card">
+                <div class="card-title">
+                    <p>Last Month Cost Incurred: </p>
+                </div>
+                <div class="card-content">
+                    <p>{{ 1500 | currency:'INR':'symbol' }}</p>
+                </div>
+            </mat-card>
+            <mat-card class="card">
+                <div class="card-title">
+                    <p>Current Month Cost Incurred: </p>
+                </div>
+                <div class="card-content">
+                    <p>{{ 1500 | currency:'INR':'symbol' }}</p>
+                </div>
+            </mat-card>
+            <mat-card class="card">
+                <div class="card-title">
+                    <p>New Patients Registered (Weekly): </p>
+                </div>
+                <div class="card-content">
+                    <p>5</p>
+                </div>
+            </mat-card>
+            <mat-card class="card">
+                <div class="card-title">
+                    <p></p>
+                </div>
+                <div class="card-content">
+                    <p></p>
+                </div>
+            </mat-card>
+        </div>
+        <div class="table">
+            <mat-card  class="card">
+                <app-table></app-table>
+            </mat-card>
+        </div>
+    </div>
+</div>
