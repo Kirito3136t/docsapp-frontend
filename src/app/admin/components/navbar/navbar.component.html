@@ -6,7 +6,12 @@
     </div>
     <div class="actions">
         <div class="action-button">
-            <button mat-button>Home</button>
+            <button 
+                mat-button
+                routerLink="/home" 
+                routerLinkActive="active-button" 
+                [routerLinkActiveOptions]="{ exact: true }"
+            >Home</button>
         </div>
         <div class="action-button">
             <button mat-button>Dashboard</button>

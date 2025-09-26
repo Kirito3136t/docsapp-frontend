@@ -8,13 +8,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { TableComponent } from './components/table/table.component';
 import { AdminService } from './services/admin.service';
+import { StoreModule } from '@ngrx/store';
+import { adminFeatureKey,adminReducer } from './store/admin.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AdminEffects } from './store/admin.effects';
 
 const routes: Routes = [
-  {path: '',component: HomeComponent},
-  {path: 'home',component: HomeComponent},
-  {path: 'dashboard',component: DashboardComponent},
-  {path:'list',component:ListComponent},
-  {path:'**',component:HomeComponent}
+  {
+    path: '',  
+    component: HomeComponent, 
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' }, 
+      { path: 'home', component: HomeComponent },          
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'list', component: ListComponent },          
+      { path: '**', redirectTo: 'home', pathMatch: 'full' } 
+    ]
+  }
 ];
 
 @NgModule({
@@ -28,7 +38,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature(adminFeatureKey, adminReducer),
+    EffectsModule.forFeature([AdminEffects])
   ],
   exports:[
     RouterModule
@@ -37,4 +49,5 @@ const routes: Routes = [
     AdminService
   ]
 })
+
 export class AdminModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // material modules import 
 import { MatButtonModule } from '@angular/material/button';
@@ -10,9 +11,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SpinnerComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -23,9 +28,13 @@ import {MatTableModule} from '@angular/material/table';
     MatCheckboxModule,
     MatIconModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   exports:[
+    SpinnerComponent,
+
+    // material modules 
     MatButtonModule,
     MatInputModule,
     FormsModule,
@@ -34,7 +43,8 @@ import {MatTableModule} from '@angular/material/table';
     MatCheckboxModule,
     MatIconModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }

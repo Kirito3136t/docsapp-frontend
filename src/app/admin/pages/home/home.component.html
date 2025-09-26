@@ -18,7 +18,7 @@
                     <p>Current Month Cost Incurred: </p>
                 </div>
                 <div class="card-content">
-                    <p>{{ 1500 | currency:'INR':'symbol' }}</p>
+                    <p>{{ 700 | currency:'INR':'symbol' }}</p>
                 </div>
             </mat-card>
             <mat-card class="card">
@@ -40,7 +40,10 @@
         </div>
         <div class="table">
             <mat-card  class="card">
-                <app-table [data] = "data" [columns]="columns"></app-table>
+                <div *ngIf="data.length == 0" class="spinner">
+                    <app-spinner></app-spinner>
+                </div>
+                <app-table *ngIf="data.length != 0" [data] = "data" [columns]="columns"></app-table>
             </mat-card>
         </div>
     </div>

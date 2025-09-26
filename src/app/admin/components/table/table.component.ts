@@ -8,7 +8,7 @@ import { Checkup } from 'src/app/shared/models/checkup.model';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnChanges{
-  @Input() data:any
+  @Input() data:Checkup[] = [];
   @Input() columns:string[] = [];
   datasource = new MatTableDataSource<Checkup>();
 
